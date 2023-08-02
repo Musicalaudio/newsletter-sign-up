@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url(../assets/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  src: url(../assets/fonts/Roboto-Bold.ttf);
+}
+
+:root {
+  /* colors */
+  --white: hsl(0, 0%, 100%);
+  --grey: hsl(243, 28%, 13%, 0.25);
+  --pale-navy: hsl(235, 18%, 26%);
+  --dark-navy: hsl(234, 29%, 20%);
+  --vermillion: hsl(4, 100%, 67%);
+  --button-gradient: linear-gradient(
+    225deg,
+    hsl(15, 100%, 61%) 0%,
+    hsl(346, 100%, 66%) 100%
+  );
+
+  /* fonts */
+  --fs-header: 2.5rem;
+  --fs-body: 1rem;
+  --fs-label: 0.75rem;
+
+  /* font-weight */
+  --fw-body: 400;
+  --fw-bold: 700;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-content: center;
+  font-size: var(--fs-body);
+  font-family: "Roboto";
+  color: var(--dark-navy);
+  line-height: 1.5;
+  background-color: var(--pale-navy);
+}
+
+main {
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  font-size: var(--fs-header);
+  line-height: 1;
+}
+
+button {
+  background: var(--dark-navy);
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding-block: 1.13rem 0.88rem;
+  cursor: pointer;
+  /* width: 100%; */
+}
+
+button:hover {
+  background: var(--button-gradient);
+  box-shadow: 0px 1rem 2rem 0px rgba(255, 97, 85, 0.5);
+}
+
+.sign-up {
+  display: grid;
+  place-content: center;
+  /* max-width: 23.4375rem; */
+  background-color: var(--white);
+  /* min-height: 90vh; */
+}
+
+.sign-up__desc {
+  padding-inline: 1rem;
+  padding-block: 1.5rem;
+}
+
+.sign-up__desc p {
+  margin-block: 0.5rem 1.5rem;
+}
+
+.sign-up__list li:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.sign-up__list li {
+  display: flex;
+  gap: 1rem;
+}
+
+.sign-up__list li::before {
+  content: url(../assets/images/icon-list.svg);
+  align-self: start;
+  padding-top: 0.1rem;
+}
+
+.sign-up__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up__form label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  margin-block: 2.5rem 0.5rem;
+  display: flex;
+}
+
+.sign-up__form:has(input[aria-invalid="true"]) label > span {
+  content: "Valid email required";
+  display: inline-block;
+  margin-left: auto;
+}
+
+.sign-up__form button {
+  margin-top: 1.5rem;
+}
+
+.sign-up__form input {
+  border: 1px solid var(--grey);
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+  cursor: pointer;
+}
+
+.sign-up__form input[aria-invalid="true"] {
+  color: var(--vermillion);
+  background-color: hsla(4, 100%, 67%, 0.15);
+  border-color: var(--vermillion);
+}
+
+.sign-up__start {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  max-width: 23.4375rem;
+}
+
+.sign-up__success {
+  display: flex;
+  flex-direction: column;
+  max-width: 23.4375rem;
+}
+
+.sign-up__success::before {
+  content: url(../assets/images/icon-success.svg);
+}
+
+.sign-up__success h1 {
+  margin-block: 2.5rem 1.5rem;
+}
+
+.sign-up__success button {
+  margin-top: 16.44rem;
+}
+
+.sign-up__email {
+  font-weight: var(--fw-bold);
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --fs-header: 3.5rem;
+  }
+
+  .sign-up {
+    display: grid;
+    place-content: center;
+    border-radius: 2.25rem;
+    padding-inline: 1.5rem;
+  }
+
+  .sign-up__start {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    max-width: 58rem;
+    padding-block: 1.5rem;
+  }
+
+  .sign-up__desc {
+    padding-inline: 2.5rem 4rem;
+  }
+
+  .sign-up__start picture {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .sign-up__success {
+    max-width: 31.5rem;
+  }
+
+  .sign-up__success.sign-up__desc {
+    padding-inline: 2.5rem;
+    padding-block: 3rem 4rem;
+  }
+
+  .sign-up__success.sign-up__desc p {
+    margin-block: 0;
+  }
+
+  .sign-up__success button {
+    margin-top: 2.5rem;
+  }
+
+  /* picture {
+  } */
+}
+
+.display-none {
+  display: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--white);
+}
+.attribution a {
+  color: var(--vermillion);
+}
