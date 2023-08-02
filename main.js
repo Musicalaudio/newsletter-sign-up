@@ -1,12 +1,15 @@
 let input = document.querySelector(".sign-up__form input");
 let form = document.querySelector(".sign-up__form");
+let returnButton = document.querySelector(".sign-up__success button");
 form.addEventListener("submit", submitForm);
+returnButton.addEventListener("click", returnToSignUp);
 
 function submitForm(e) {
   e.preventDefault();
-  // console.log("test");
   let email = input.value.trim();
-  if (validateForm(email)) getConfirmation(email);
+  validateForm(email)
+    ? getConfirmation(email, true)
+    : getConfirmation(email, false);
 }
 
 function validateForm(email) {
@@ -20,8 +23,19 @@ function validateForm(email) {
   }
 }
 
-function getConfirmation(email) {
+function getConfirmation(email, isValid) {
+  if (isValid) {
+    document.querySelector(".sign-up__start").classList.toggle("display-none");
+    document
+      .querySelector(".sign-up__success")
+      .classList.toggle("display-none");
+    document.querySelector(".sign-up__email").innerText = email;
+  }
+
+  document.querySelector(".sign-up__error").innerText = "Valid email required";
+}
+
+function returnToSignUp() {
   document.querySelector(".sign-up__start").classList.toggle("display-none");
   document.querySelector(".sign-up__success").classList.toggle("display-none");
-  document.querySelector(".sign-up__email").innerText = email;
 }

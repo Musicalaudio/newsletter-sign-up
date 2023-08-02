@@ -114,9 +114,10 @@ button:hover {
 }
 
 .sign-up__form:has(input[aria-invalid="true"]) label > span {
-  content: "Valid email required";
+  /* content: "Valid email required"; */
   display: inline-block;
   margin-left: auto;
+  color: var(--vermillion);
 }
 
 .sign-up__form button {
